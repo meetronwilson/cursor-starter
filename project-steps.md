@@ -278,7 +278,7 @@ This implementation plan creates a clean, modern starter template with the follo
     - `lib/hooks/use-dashboard-data.ts`: Hook for mock dashboard data
   - **Step Dependencies**: Step 26
 
-- [ ] Step 28: Implement user profile page with Clerk integration
+- [x] Step 28: Implement user profile page with Clerk integration
   - **Task**: Create a profile page that uses Clerk data and profile management.
   - **Files**:
     - `app/(auth)/profile/page.tsx`: User profile page
@@ -287,17 +287,6 @@ This implementation plan creates a clean, modern starter template with the follo
     - `app/(auth)/profile/_components/profile-header.tsx`: Profile header component
     - `actions/profile.ts`: Profile-related server actions
   - **Step Dependencies**: Step 27
-
-- [ ] Step 29: Create billing section with Stripe data
-  - **Task**: Implement billing pages with Stripe subscription information.
-  - **Files**:
-    - `app/(auth)/billing/page.tsx`: Billing page
-    - `app/(auth)/billing/_components/subscription-info.tsx`: Subscription info component
-    - `app/(auth)/billing/_components/payment-method.tsx`: Payment method component
-    - `app/(auth)/billing/_components/billing-history.tsx`: Billing history component
-    - `app/(auth)/billing/_components/plan-selector.tsx`: Plan selector component
-    - `actions/billing.ts`: Billing-related server actions
-  - **Step Dependencies**: Step 28
 
 ## Error Handling and Finalization
 - [ ] Step 30: Implement global error handling
