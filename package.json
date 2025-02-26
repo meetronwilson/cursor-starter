@@ -9,7 +9,11 @@
     "lint": "next lint",
     "db:generate": "drizzle-kit generate:pg",
     "db:push": "drizzle-kit push:pg",
-    "db:studio": "drizzle-kit studio"
+    "db:studio": "drizzle-kit studio",
+    "analyze": "ANALYZE=true next build",
+    "deploy": "next build && next start",
+    "vercel-build": "next build",
+    "postinstall": "next build"
   },
   "dependencies": {
     "@clerk/nextjs": "^6.12.0",
