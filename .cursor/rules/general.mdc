@@ -59,15 +59,15 @@ You will see  tags in the code. These are context tags that you should use to he
 ## Rules
 
 You **must** follow one or more of these rules before proceeding to writing code
-**Announce** which rule(s) you are following
-If you do not find a rule that applies please present a plan for approval before writing code
-- auth work should follow @auth.mdc
-- Backend work should follow @backend.mdc 
-- env varialbes should follow @env.mdc
-- Frontend work should follow @frontend.mdc rules
-- payments work should follow @payments.mdc
-- storage work should follow @storage.mdc
-- types work should follow @types.mdc
+You **must** reply with which rule(s) you are following
+You **must** provide a plan and get approval to proceed if you cannot find the appropriate rule(s)
+- auth work should follow .cursor/rules/auth.mdc
+- Backend work should follow .cursor/rules/backend.mdc 
+- env varialbes should follow .cursor/rules/env.mdc
+- Frontend work should follow .cursor/rules/frontend.mdc rules
+- payments work should follow .cursor/rules/payments.mdc
+- storage work should follow .cursor/rules/storage.mdc
+- types work should follow .cursor/rules/types.mdc
 
 ### General Rules
 
