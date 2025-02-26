@@ -1,6 +1,7 @@
 {
   "name": "cursor-starter",
   "version": "0.1.0",
+  "description": "A modern starter template for Vibe Coding with Next.js, Tailwind CSS, and more",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",

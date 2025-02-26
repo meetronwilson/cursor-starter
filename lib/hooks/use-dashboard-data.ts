@@ -75,8 +75,8 @@ const generateMockUsers = (count: number): TableData[] => {
   
   return Array.from({ length: count }, (_, i) => ({
     id: `user-${i + 1}`,
-    name: `User ${i + 1}`,
-    email: `user${i + 1}@example.com`,
+    name: `Developer ${i + 1}`,
+    email: `dev${i + 1}@example.com`,
     status: statuses[Math.floor(Math.random() * statuses.length)],
     role: roles[Math.floor(Math.random() * roles.length)],
     lastActive: new Date(Date.now() - Math.floor(Math.random() * 10 * 24 * 60 * 60 * 1000)).toISOString(),
@@ -85,8 +85,8 @@ const generateMockUsers = (count: number): TableData[] => {
 
 // Generate mock activity feed
 const generateMockActivity = (count: number): ActivityItem[] => {
-  const actionTypes = ["created", "updated", "deleted", "joined", "left", "paid", "subscribed"];
-  const targetTypes = ["message", "conversation", "team", "project", "subscription"];
+  const actionTypes = ["generated", "optimized", "refactored", "created", "completed", "started", "improved"];
+  const targetTypes = ["code snippet", "function", "component", "project", "API", "feature", "UI element"];
   const activityTypes: ("message" | "user" | "system" | "payment")[] = ["message", "user", "system", "payment"];
   
   return Array.from({ length: count }, (_, i) => {
@@ -96,7 +96,7 @@ const generateMockActivity = (count: number): ActivityItem[] => {
     return {
       id: `activity-${i + 1}`,
       user: {
-        name: `User ${Math.floor(Math.random() * 10) + 1}`,
+        name: `Developer ${Math.floor(Math.random() * 10) + 1}`,
         avatar: `/avatars/avatar-${Math.floor(Math.random() * 5) + 1}.png`,
       },
       action: actionTypes[Math.floor(Math.random() * actionTypes.length)],
@@ -136,16 +136,16 @@ export function useDashboardData(): DashboardData {
           labels: dateLabels,
           datasets: [
             {
-              label: 'New Users',
-              data: generateRandomData(7, 10, 50),
+              label: 'Code Generated (lines)',
+              data: generateRandomData(7, 100, 500),
               backgroundColor: 'rgba(59, 130, 246, 0.2)',
               borderColor: 'rgba(59, 130, 246, 1)',
               borderWidth: 2,
               fill: true,
             },
             {
-              label: 'Active Users',
-              data: generateRandomData(7, 100, 300),
+              label: 'AI Prompts Used',
+              data: generateRandomData(7, 10, 50),
               backgroundColor: 'rgba(16, 185, 129, 0.2)',
               borderColor: 'rgba(16, 185, 129, 1)',
               borderWidth: 2,
@@ -157,8 +157,8 @@ export function useDashboardData(): DashboardData {
           labels: dateLabels,
           datasets: [
             {
-              label: 'Revenue',
-              data: generateRandomData(7, 1000, 5000),
+              label: 'Vibe Score',
+              data: generateRandomData(7, 60, 95),
               backgroundColor: 'rgba(139, 92, 246, 0.2)',
               borderColor: 'rgba(139, 92, 246, 1)',
               borderWidth: 2,
@@ -167,10 +167,10 @@ export function useDashboardData(): DashboardData {
           ],
         },
         conversationChartData: {
-          labels: ['Messages', 'Calls', 'Video', 'Files'],
+          labels: ['UI Components', 'API Endpoints', 'Database Queries', 'Utility Functions'],
           datasets: [
             {
-              label: 'Conversation Types',
+              label: 'Code Types Generated',
               data: generateRandomData(4, 50, 200),
               backgroundColor: [
                 'rgba(59, 130, 246, 0.6)',

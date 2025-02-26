@@ -17,21 +17,21 @@ export function CTA() {
         <div className="relative isolate overflow-hidden bg-primary/10 px-6 py-24 text-center shadow-sm sm:rounded-3xl sm:px-16">
           <FadeIn>
             <h2 className="mx-auto max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl">
-              Ready to transform your workflow?
+              Ready to find your coding vibe?
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-muted-foreground">
-              Join thousands of teams already using our platform to streamline their processes,
-              boost productivity, and achieve their goals faster.
+              Join thousands of developers already using Vibe Coding to build faster, 
+              think more creatively, and enjoy the development process like never before.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Button asChild size="lg">
                 <Link href="/sign-up">
-                  Get started for free
+                  Start your vibe journey
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link href="/contact">Contact sales</Link>
+                <Link href="/contact">Learn more</Link>
               </Button>
             </div>
           </FadeIn>

@@ -18,15 +18,14 @@ export function Hero() {
         <div className="mx-auto max-w-4xl text-center">
           <FadeIn>
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-              <span className="block text-primary">Modern SaaS Platform</span>
-              <span className="block">Built for the Future</span>
+              <span className="block text-primary">Vibe Coding Revolution</span>
+              <span className="block">Code with AI, Not Against It</span>
             </h1>
           </FadeIn>
 
           <SlideIn direction="up" delay={0.2}>
             <p className="mt-6 text-lg text-muted-foreground md:text-xl">
-              A powerful, flexible, and user-friendly platform designed to help your business grow.
-              Get started in minutes and transform the way you work.
+              Experience the future of programming with Vibe Coding. Let AI handle the technical details while you focus on creativity and problem-solving. Build faster, smarter, and with more joy.
             </p>
           </SlideIn>
 
@@ -34,7 +33,7 @@ export function Hero() {
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Button asChild size="lg" className="rounded-full px-8">
                 <Link href="/sign-up">
-                  Get Started <ArrowRight className="ml-2 h-4 w-4" />
+                  Start Vibing <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="rounded-full px-8">

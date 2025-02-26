@@ -120,7 +120,7 @@ export function Footer() {
               </Link>
             </div>
             <p className="mt-8 text-sm text-muted-foreground md:mt-0 md:order-1">
-              &copy; {currentYear} NextStarter. All rights reserved.
+              &copy; {currentYear} CursorStarter. All rights reserved.
             </p>
           </div>
         </div>

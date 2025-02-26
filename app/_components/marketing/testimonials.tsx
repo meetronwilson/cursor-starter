@@ -11,50 +11,50 @@ import { SlideIn } from "@/components/utilities/animations/slide-in";
 
 const testimonials = [
   {
-    content: "This platform has completely transformed how our team collaborates. The intuitive interface and powerful features have boosted our productivity by over 40%.",
+    content: "Vibe Coding has completely transformed my development workflow. I'm building applications 3x faster by letting AI handle the implementation details while I focus on the big picture.",
     author: {
       name: "Sarah Johnson",
-      role: "Product Manager at TechCorp",
+      role: "Full-Stack Developer",
       image: "https://randomuser.me/api/portraits/women/1.jpg",
     },
   },
   {
-    content: "I&apos;ve tried dozens of productivity tools, but this one stands out. The automation features alone have saved me hours each week. Highly recommended!",
+    content: "As someone new to programming, Vibe Coding has been a game-changer. I can express my ideas in natural language and watch them transform into working code. It's like having a senior developer by my side.",
     author: {
       name: "Michael Chen",
-      role: "Freelance Developer",
+      role: "Startup Founder",
       image: "https://randomuser.me/api/portraits/men/2.jpg",
     },
   },
   {
-    content: "The analytics dashboard provides insights we never had before. We&apos;ve been able to identify bottlenecks and optimize our workflow significantly.",
+    content: "The flow state I achieve with Vibe Coding is incredible. I'm more creative, productive, and actually enjoy the development process now that I'm not fighting with syntax and boilerplate code.",
     author: {
       name: "Emma Rodriguez",
-      role: "Operations Director at GrowthCo",
+      role: "Frontend Engineer",
       image: "https://randomuser.me/api/portraits/women/3.jpg",
     },
   },
   {
-    content: "Security was our main concern when choosing a platform. The robust security features and compliance certifications made this an easy choice for our enterprise.",
+    content: "Our team has adopted Vibe Coding for rapid prototyping, and we're delivering MVPs in days instead of weeks. The ability to iterate quickly with AI assistance has been invaluable for our business.",
     author: {
       name: "David Kim",
-      role: "CTO at SecureFinance",
+      role: "Product Manager",
       image: "https://randomuser.me/api/portraits/men/4.jpg",
     },
   },
   {
-    content: "The customer support team is exceptional. Any time we&apos;ve had questions, they&apos;ve responded quickly and effectively. It&apos;s rare to find this level of service.",
+    content: "I was skeptical about AI-assisted coding, but Vibe Coding has made me a believer. The quality of the generated code is impressive, and it's helped me learn best practices I wouldn't have discovered otherwise.",
     author: {
       name: "Olivia Martinez",
-      role: "Customer Success at RetailPlus",
+      role: "Computer Science Student",
       image: "https://randomuser.me/api/portraits/women/5.jpg",
     },
   },
   {
-    content: "We&apos;ve seen a 30% increase in team engagement since implementing this platform. The collaboration tools are seamless and intuitive.",
+    content: "Vibe Coding has democratized software development. Our non-technical team members can now contribute to our codebase by describing features in plain English, which has accelerated our development cycle.",
     author: {
       name: "James Wilson",
-      role: "HR Director at GlobalTeam",
+      role: "CTO at TechInnovate",
       image: "https://randomuser.me/api/portraits/men/6.jpg",
     },
   },
@@ -68,10 +68,10 @@ export function Testimonials() {
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-base font-semibold leading-7 text-primary">Testimonials</h2>
             <p className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
-              Trusted by thousands of teams worldwide
+              Developers who found their vibe
             </p>
             <p className="mt-6 text-lg leading-8 text-muted-foreground">
-              Don&apos;t just take our word for it — hear what our customers have to say about their experience.
+              Hear from developers who have embraced the Vibe Coding paradigm and transformed their development experience.
             </p>
           </div>
         </FadeIn>

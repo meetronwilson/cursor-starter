@@ -10,8 +10,8 @@ import { Pricing } from "@/app/_components/marketing/pricing";
 import { CTA } from "@/app/_components/marketing/cta";
 
 export const metadata: Metadata = {
-  title: "Next.js Starter Template",
-  description: "A modern Next.js starter template with Tailwind CSS, Shadcn UI, and more.",
+  title: "CursorStarter: Vibe Coding Template",
+  description: "A modern Next.js starter template for Vibe Coding with AI-assisted development workflow.",
 };
 
 export default function Home() {

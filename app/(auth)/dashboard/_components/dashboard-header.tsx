@@ -32,7 +32,7 @@ export function DashboardHeader({ title }: DashboardHeaderProps) {
         <Search className="absolute left-2.5 h-4 w-4 text-muted-foreground" />
         <Input
           type="search"
-          placeholder="Search..."
+          placeholder="Search your vibe projects..."
           className="w-full bg-background pl-8 md:w-[300px] lg:w-[400px]"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}

@@ -12,8 +12,16 @@ import { Container } from "@/components/layout/container";
 // FAQ items
 const faqItems = [
   {
+    question: "What is Vibe Coding?",
+    answer: "Vibe Coding is a new programming paradigm where you use AI tools to generate code through natural language prompts. It allows you to focus on high-level problem-solving while AI handles the technical implementation details, making development faster and more enjoyable."
+  },
+  {
+    question: "Do I need to know how to code to use CursorStarter?",
+    answer: "While some programming knowledge is helpful, CursorStarter is designed to be accessible to users with varying levels of technical expertise. The AI-assisted development features can help bridge knowledge gaps and accelerate learning for beginners."
+  },
+  {
     question: "How does the pricing work?",
-    answer: "Our pricing is based on a per-user model. You pay for each user in your organization who needs access to the platform. We offer monthly and annual billing options, with a discount for annual commitments."
+    answer: "Our pricing is based on a per-user model for team plans, with individual plans available at a flat monthly rate. We offer monthly and annual billing options, with a discount for annual commitments."
   },
   {
     question: "Can I change plans later?",
@@ -21,19 +29,11 @@ const faqItems = [
   },
   {
     question: "Is there a free trial?",
-    answer: "Yes, we offer a 14-day free trial on our Pro plan. No credit card is required to start your trial. You'll receive a notification before your trial ends, at which point you can choose to subscribe or downgrade to our Free plan."
+    answer: "Yes, we offer a 14-day free trial on our Vibe Creator plan. No credit card is required to start your trial. You'll receive a notification before your trial ends, at which point you can choose to subscribe or downgrade to our Vibe Explorer plan."
   },
   {
-    question: "What payment methods do you accept?",
-    answer: "We accept all major credit cards (Visa, Mastercard, American Express) and PayPal. For Enterprise plans, we also offer invoicing with net-30 payment terms."
-  },
-  {
-    question: "Do you offer refunds?",
-    answer: "We offer a 30-day money-back guarantee for annual subscriptions. Monthly subscriptions can be canceled at any time, but we don't provide partial refunds for unused time."
-  },
-  {
-    question: "What happens to my data if I cancel?",
-    answer: "If you cancel your subscription, your account will be downgraded to the Free plan at the end of your billing cycle. You'll retain access to your data, but with the limitations of the Free plan. If you delete your account, all data will be permanently removed after 30 days."
+    question: "How does Vibe Coding compare to traditional coding?",
+    answer: "Vibe Coding complements traditional coding by handling repetitive tasks, boilerplate code, and implementation details. It allows you to express your intent in natural language and focus on creativity and problem-solving. Many developers find it increases productivity and enjoyment while reducing technical friction."
   }
 ];
 

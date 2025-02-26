@@ -6,10 +6,10 @@
 import { 
   ArrowUpRight, 
   ArrowDownRight, 
-  Users, 
+  Code, 
   MessageSquare, 
-  CreditCard, 
-  Activity 
+  Sparkles, 
+  Brain 
 } from "lucide-react";
 
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -27,43 +27,43 @@ interface StatCardProps {
 
 const stats: StatCardProps[] = [
   {
-    title: "Total Users",
-    value: "2,543",
-    description: "Active users on the platform",
-    icon: <Users className="h-4 w-4 text-muted-foreground" />,
+    title: "AI-Generated Code",
+    value: "12,543",
+    description: "Lines of code generated",
+    icon: <Code className="h-4 w-4 text-muted-foreground" />,
     trend: {
-      value: "+12.5%",
+      value: "+24.5%",
       isPositive: true,
     },
   },
   {
-    title: "Conversations",
-    value: "12,453",
-    description: "Total conversations created",
+    title: "Natural Language Prompts",
+    value: "1,453",
+    description: "Prompts used for generation",
     icon: <MessageSquare className="h-4 w-4 text-muted-foreground" />,
     trend: {
-      value: "+8.2%",
+      value: "+18.2%",
       isPositive: true,
     },
   },
   {
-    title: "Revenue",
-    value: "$12,234",
-    description: "Monthly recurring revenue",
-    icon: <CreditCard className="h-4 w-4 text-muted-foreground" />,
+    title: "Vibe Score",
+    value: "87/100",
+    description: "Your coding flow rating",
+    icon: <Sparkles className="h-4 w-4 text-muted-foreground" />,
     trend: {
-      value: "+2.5%",
+      value: "+5.5%",
       isPositive: true,
     },
   },
   {
-    title: "Active Sessions",
+    title: "AI Suggestions",
     value: "324",
-    description: "Current active sessions",
-    icon: <Activity className="h-4 w-4 text-muted-foreground" />,
+    description: "Accepted AI recommendations",
+    icon: <Brain className="h-4 w-4 text-muted-foreground" />,
     trend: {
-      value: "-4.3%",
-      isPositive: false,
+      value: "+12.3%",
+      isPositive: true,
     },
   },
 ];

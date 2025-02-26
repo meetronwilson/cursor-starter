@@ -10,8 +10,8 @@ import { Container } from "@/components/layout/container";
 
 export const metadata: Metadata = createMetadata({
   title: "Pricing",
-  description: "Choose the right plan for your team",
-  keywords: ["pricing", "subscription", "plans", "billing"],
+  description: "Choose the right Vibe Coding plan for your development needs",
+  keywords: ["pricing", "subscription", "plans", "billing", "vibe coding"],
 });
 
 export default function PricingPage() {
@@ -20,10 +20,10 @@ export default function PricingPage() {
       <div className="py-12 md:py-16 lg:py-20">
         <div className="mx-auto max-w-3xl text-center mb-12">
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl mb-4">
-            Simple, transparent pricing
+            Find Your Vibe Coding Plan
           </h1>
           <p className="text-xl text-muted-foreground">
-            Choose the plan that&apos;s right for your team. All plans include a 14-day free trial.
+            Choose the plan that matches your development style. All plans include AI-assisted coding features and a 14-day free trial.
           </p>
         </div>
         <PricingPlans />

@@ -13,12 +13,12 @@ import { Skeleton } from "@/components/ui/skeleton";
 export default function DashboardPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <DashboardHeader title="Dashboard" />
+      <DashboardHeader title="Vibe Dashboard" />
       <main className="flex-1 p-6 space-y-8">
         <div className="space-y-4">
-          <h2 className="text-2xl font-bold tracking-tight">Overview</h2>
+          <h2 className="text-2xl font-bold tracking-tight">Your Vibe Overview</h2>
           <p className="text-muted-foreground">
-            Welcome to your dashboard. Here&apos;s an overview of your account.
+            Welcome to your Vibe Coding dashboard. Here&apos;s an overview of your coding journey and projects.
           </p>
         </div>
         

@@ -1,9 +1,9 @@
-# Next.js Starter Template
+# CursorStarter: Vibe Coding Template
 
-A modern, full-featured starter template for building web applications with Next.js, Tailwind CSS, Shadcn UI, and more. This template provides a solid foundation for building production-ready applications with best practices for authentication, database integration, payment processing, and UI components.
+A modern, full-featured starter template for building web applications with Next.js, Tailwind CSS, Shadcn UI, and more. This template provides a solid foundation for Vibe Coding - a new programming paradigm where you use AI tools to generate code through natural language prompts, focusing on high-level problem-solving rather than manual coding.
 
 <p align="center">
-  <img src="public/og-image.png" alt="Next.js Starter Template" width="600" />
+  <img src="public/og-image.png" alt="CursorStarter Template" width="600" />
 </p>
 
 ## 🚀 Features
@@ -14,6 +14,12 @@ A modern, full-featured starter template for building web applications with Next
   - [TypeScript](https://www.typescriptlang.org/) for type safety
   - [Tailwind CSS](https://tailwindcss.com/) for styling
   - [Shadcn UI](https://ui.shadcn.com/) for beautiful, accessible components
+
+- **Vibe Coding Support**
+  - AI-assisted development workflow
+  - Natural language code generation
+  - High-level problem-solving focus
+  - Streamlined development experience
 
 - **Authentication & Authorization**
   - [Clerk](https://clerk.dev/) for user management
@@ -68,8 +74,8 @@ Before you begin, ensure you have the following:
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/next-starter-template.git
-cd next-starter-template
+git clone https://github.com/yourusername/cursor-starter.git
+cd cursor-starter
 ```
 
 ### 2. Install dependencies
@@ -277,7 +283,7 @@ Drizzle ORM schemas can be modified in the `db/schema` directory. After making c
 If you encounter issues not covered here, please:
 
 1. Check the [Next.js documentation](https://nextjs.org/docs)
-2. Search for similar issues on [GitHub](https://github.com/yourusername/next-starter-template/issues)
+2. Search for similar issues on [GitHub](https://github.com/yourusername/cursor-starter/issues)
 3. Create a new issue if your problem persists
 
 ## 📄 License

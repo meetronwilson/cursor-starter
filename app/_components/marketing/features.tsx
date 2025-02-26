@@ -6,11 +6,11 @@
 
 import { 
   Zap, 
-  Shield, 
-  BarChart, 
-  Users, 
-  Clock, 
-  Globe 
+  Sparkles, 
+  Brain, 
+  MessageSquare, 
+  Code, 
+  Workflow 
 } from "lucide-react";
 import { Container } from "@/components/layout/container";
 import { FadeIn } from "@/components/utilities/animations/fade-in";
@@ -18,34 +18,34 @@ import { SlideIn } from "@/components/utilities/animations/slide-in";
 
 const features = [
   {
-    name: "Lightning Fast",
-    description: "Optimized for speed and performance, ensuring your workflow is never interrupted.",
+    name: "Natural Language Coding",
+    description: "Express your ideas in plain English and watch as they transform into functional code through AI assistance.",
+    icon: MessageSquare,
+  },
+  {
+    name: "Flow State Programming",
+    description: "Enter a trance-like state of productivity where code flows naturally and bugs fix themselves.",
+    icon: Workflow,
+  },
+  {
+    name: "AI-Powered Assistance",
+    description: "Let advanced AI models handle the technical implementation while you focus on high-level problem-solving.",
+    icon: Brain,
+  },
+  {
+    name: "Rapid Prototyping",
+    description: "Build functional prototypes in hours instead of days by leveraging AI to handle boilerplate and repetitive tasks.",
     icon: Zap,
   },
   {
-    name: "Secure by Design",
-    description: "Enterprise-grade security with end-to-end encryption and regular security audits.",
-    icon: Shield,
+    name: "Creative Problem Solving",
+    description: "Focus on the creative aspects of development while AI handles the nitty-gritty implementation details.",
+    icon: Sparkles,
   },
   {
-    name: "Advanced Analytics",
-    description: "Gain insights with comprehensive analytics and customizable dashboards.",
-    icon: BarChart,
-  },
-  {
-    name: "Team Collaboration",
-    description: "Seamless collaboration tools to keep your team connected and productive.",
-    icon: Users,
-  },
-  {
-    name: "Time-Saving Automation",
-    description: "Automate repetitive tasks and focus on what matters most to your business.",
-    icon: Clock,
-  },
-  {
-    name: "Global Accessibility",
-    description: "Access your workspace from anywhere in the world, on any device.",
-    icon: Globe,
+    name: "Code Quality Assurance",
+    description: "AI ensures your code follows best practices, is well-documented, and free of common bugs and vulnerabilities.",
+    icon: Code,
   },
 ];
 
@@ -57,11 +57,11 @@ export function Features() {
           <FadeIn>
             <h2 className="text-base font-semibold leading-7 text-primary">Features</h2>
             <p className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
-              Everything you need to succeed
+              The Vibe Coding Experience
             </p>
             <p className="mt-6 text-lg leading-8 text-muted-foreground">
-              Our platform provides all the tools you need to streamline your workflow,
-              enhance productivity, and scale your business.
+              Our platform provides all the tools you need to embrace the Vibe Coding paradigm,
+              enhancing your productivity and creativity while reducing technical friction.
             </p>
           </FadeIn>
         </div>

@@ -22,7 +22,7 @@ export function Logo({
       <Layers className={cn("h-6 w-6 text-primary", iconClassName)} />
       {showText && (
         <span className={cn("font-bold text-xl", textClassName)}>
-          NextStarter
+          CursorStarter
         </span>
       )}
     </div>
