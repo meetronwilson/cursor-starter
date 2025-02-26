@@ -25,4 +25,8 @@ Cursor rules are custom instructions that guide the AI assistant in Cursor to pr
 
 ## Contributing
 
-Feel free to contribute to this repository by submitting pull requests with new or improved rules. 
+Feel free to contribute to this repository by submitting pull requests with new or improved rules.
+
+## Attribution
+
+These rules were inspired by and adapted from [Mckay Wrigley's o1-pro-template-system repository](https://github.com/mckaywrigley/o1-pro-template-system). The original framework and some content have been modified and expanded upon, but credit goes to Mckay for the excellent starting point and structure. 
