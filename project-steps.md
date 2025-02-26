@@ -196,10 +196,11 @@ This implementation plan creates a clean, modern starter template with the follo
 - [x] Step 19: Set up theme provider with dark mode
   - **Task**: Implement theming with dark mode support using Tailwind and next-themes.
   - **Files**:
-    - `components/providers/theme-provider.tsx`: Theme provider
     - `components/ui/theme-toggle.tsx`: Theme toggle component
-    - `app/layout.tsx`: Update with theme provider
-  - **Step Dependencies**: Step 18
+    - `components/providers/theme-provider.tsx`: Theme provider component
+    - `app/layout.tsx`: Root layout with theme provider
+  - **Dependencies**: `next-themes`
+  - **Step Dependencies**: None
 
 - [x] Step 20: Create layout components
   - **Task**: Build reusable layout components for the application.
@@ -210,35 +211,37 @@ This implementation plan creates a clean, modern starter template with the follo
     - `components/layout/container.tsx`: Container component
   - **Step Dependencies**: Step 19
 
-- [x] Step 21: Implement animated components with Framer Motion
-  - **Task**: Create reusable animated components using Framer Motion.
+- [x] Step 21: Create animated components with Framer Motion
+  - **Task**: Implement animation components using Framer Motion.
   - **Files**:
     - `components/utilities/animations/fade-in.tsx`: Fade-in animation
     - `components/utilities/animations/slide-in.tsx`: Slide-in animation
-    - `components/utilities/animations/scale.tsx`: Scale animation
-    - `lib/animations.ts`: Animation utility functions
-  - **Step Dependencies**: Step 20
+    - `components/utilities/animations/scale-in.tsx`: Scale-in animation
+  - **Dependencies**: `framer-motion`
+  - **Step Dependencies**: None
 
-- [x] Step 22: Create feedback and notification components
-  - **Task**: Implement components for user feedback and notifications.
+- [x] Step 22: Implement feedback and notification components
+  - **Task**: Create components for user feedback and notifications.
   - **Files**:
-    - `components/ui/sonner.tsx`: Toast component (using Sonner instead of Toast)
     - `components/providers/toast-provider.tsx`: Toast provider
-    - `components/ui/alert.tsx`: Alert component
     - `lib/hooks/use-toast.ts`: Toast hook
-  - **Step Dependencies**: Step 21
+  - **Dependencies**: `sonner`
+  - **Step Dependencies**: None
+
+- [x] Step 23: Create marketing homepage for non-authenticated users
+  - **Task**: Build a marketing homepage with key sections.
+  - **Files**:
+    - `app/page.tsx` : Marketing homepage
+    - `app/(marketing)/page.tsx`: Marketing homepage
+    - `app/(marketing)/layout.tsx`: Marketing layout
+    - `app/_components/marketing/hero.tsx`: Hero section
+    - `app/_components/marketing/features.tsx`: Features section
+    - `app/_components/marketing/testimonials.tsx`: Testimonials section
+    - `app/_components/marketing/pricing.tsx`: Pricing section
+    - `app/_components/marketing/cta.tsx`: Call-to-action section
+  - **Step Dependencies**: Steps 19, 20, 21, 22
 
 ## Marketing Pages
-- [ ] Step 23: Create marketing homepage
-  - **Task**: Build an attractive landing page for non-authenticated users.
-  - **Files**:
-    - `app/page.tsx`: Marketing homepage
-    - `app/_components/marketing/hero.tsx`: Hero section component
-    - `app/_components/marketing/features.tsx`: Features section component
-    - `app/_components/marketing/testimonials.tsx`: Testimonials component
-    - `app/_components/marketing/cta.tsx`: Call-to-action component
-  - **Step Dependencies**: Step 22
-
 - [ ] Step 24: Create pricing page
   - **Task**: Implement a pricing page showcasing subscription tiers.
   - **Files**:

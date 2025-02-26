@@ -1,5 +1,5 @@
 /**
- * Main homepage for non-authenticated users
+ * Marketing homepage for non-authenticated users
  * Combines all marketing components into a cohesive landing page
  */
 import { Metadata } from "next";
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   description: "A powerful, feature-rich starter template for building modern SaaS applications with Next.js, Tailwind CSS, and more.",
 };
 
-export default function Home() {
+export default function MarketingPage() {
   return (
     <main>
       <Hero />
@@ -24,4 +24,4 @@ export default function Home() {
       <CTA />
     </main>
   );
-}
+} 
