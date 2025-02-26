@@ -59,13 +59,13 @@ You will see  tags in the code. These are context tags that you should use to he
 ## Rules
 
 Follow these rules when building the app.
-- auth work should follow [auth.mdc](mdc:slack-clone-claude/.cursor/rules/auth.mdc)
-- Backend work should follow [backend.mdc](mdc:slack-clone-claude/.cursor/rules/backend.mdc) 
-- env varialbes should follow [env.mdc](mdc:slack-clone-claude/.cursor/rules/env.mdc)
-- Frontend work should follow [frontend.mdc](mdc:slack-clone-claude/.cursor/rules/frontend.mdc) rules
-- payments work should follow [payments.mdc](mdc:slack-clone-claude/.cursor/rules/payments.mdc)
-- storage work should follow [storage.mdc](mdc:slack-clone-claude/.cursor/rules/storage.mdc)
-- types work should follow [types.mdc](mdc:slack-clone-claude/.cursor/rules/types.mdc)
+- auth work should follow @auth.mdc
+- Backend work should follow @backend.mdc 
+- env varialbes should follow @env.mdc
+- Frontend work should follow @frontend.mdc rules
+- payments work should follow @payments.mdc
+- storage work should follow @storage.mdc
+- types work should follow @types.mdc
 
 ### General Rules
 

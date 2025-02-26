@@ -62,6 +62,31 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+### Database Setup
+
+1. Create a Supabase project at [https://supabase.com](https://supabase.com)
+
+2. Get your database connection string from the Supabase dashboard:
+   - Go to Project Settings > Database
+   - Find the "Connection string" section
+   - Copy the connection string and replace `[YOUR-PASSWORD]` with your database password
+
+3. Add the connection string to your `.env.local` file:
+   ```
+   DATABASE_URL=your-connection-string
+   ```
+
+4. Generate and apply database migrations:
+   ```bash
+   npm run db:generate  # Generate migration files
+   npm run db:push      # Apply migrations to your database
+   ```
+
+5. (Optional) Use Drizzle Studio to manage your database:
+   ```bash
+   npm run db:studio
+   ```
+
 ## Project Structure
 
 ```

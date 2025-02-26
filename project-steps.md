@@ -59,7 +59,7 @@ This implementation plan creates a clean, modern starter template with the follo
     - Run `npx shadcn@latest add [component-name]` for each component
 
 ## Database Setup with Drizzle
-- [ ] Step 5: Set up Supabase Postgres connection for Drizzle
+- [x] Step 5: Set up Supabase Postgres connection for Drizzle
   - **Task**: Create a Supabase project and configure the database connection for Drizzle ORM.
   - **Files**:
     - `lib/db.ts`: Database connection configuration
@@ -70,7 +70,7 @@ This implementation plan creates a clean, modern starter template with the follo
     - Copy your Postgres connection string to `.env.local`
     - Make sure to enable "Connection Pooling" in Supabase Dashboard for production
 
-- [ ] Step 6: Configure Drizzle ORM
+- [x] Step 6: Configure Drizzle ORM
   - **Task**: Set up Drizzle ORM for database schema management and queries.
   - **Files**:
     - `db/index.ts`: Drizzle database client setup
@@ -80,15 +80,15 @@ This implementation plan creates a clean, modern starter template with the follo
   - **User Instructions**:
     - Configure Drizzle to connect to your Supabase PostgreSQL database
 
-- [ ] Step 7: Create initial database schemas
+- [x] Step 7: Create initial database schemas
   - **Task**: Create basic database schemas to establish the structure.
   - **Files**:
-    - `db/schema/users.ts`: User schema (synchronized with Clerk)
-    - `db/schema/products.ts`: Product schema
-    - `db/schema/subscriptions.ts`: Subscription schema
+    - `db/schema/users-schema.ts`: User schema (synchronized with Clerk)
+    - `db/schema/products-schema.ts`: Product schema
+    - `db/schema/subscriptions-schema.ts`: Subscription schema
   - **Step Dependencies**: Step 6
 
-- [ ] Step 8: Generate and apply database migrations
+- [x] Step 8: Generate and apply database migrations
   - **Task**: Create and run initial database migrations using Drizzle.
   - **Files**:
     - `db/migrations/`: Migration files directory
@@ -99,7 +99,7 @@ This implementation plan creates a clean, modern starter template with the follo
     - Run `npx drizzle-kit push:pg` to apply migrations to your database
 
 ## Authentication with Clerk
-- [ ] Step 9: Set up Clerk authentication
+- [x] Step 9: Set up Clerk authentication
   - **Task**: Integrate Clerk for authentication and user management.
   - **Files**:
     - `app/layout.tsx`: Update with Clerk provider
@@ -111,7 +111,7 @@ This implementation plan creates a clean, modern starter template with the follo
     - Set up a new application in Clerk dashboard
     - Add Clerk API keys to `.env.local`
 
-- [ ] Step 10: Create sign-in and sign-up pages
+- [x] Step 10: Create sign-in and sign-up pages
   - **Task**: Implement Clerk authentication UI components and flows.
   - **Files**:
     - `app/sign-in/[[...sign-in]]/page.tsx`: Sign-in page
@@ -121,7 +121,7 @@ This implementation plan creates a clean, modern starter template with the follo
     - `components/auth/user-button.tsx`: User profile button
   - **Step Dependencies**: Step 9
 
-- [ ] Step 11: Configure Clerk webhooks
+- [x] Step 11: Configure Clerk webhooks
   - **Task**: Set up Clerk webhooks to synchronize user data with Supabase.
   - **Files**:
     - `app/api/webhooks/clerk/route.ts`: Clerk webhook handler
@@ -132,7 +132,7 @@ This implementation plan creates a clean, modern starter template with the follo
     - Configure the webhook to point to your `/api/webhooks/clerk` endpoint
     - Add the webhook secret to `.env.local`
 
-- [ ] Step 12: Implement route protection and authorization
+- [x] Step 12: Implement route protection and authorization
   - **Task**: Create utility functions for route protection and role-based access.
   - **Files**:
     - `middleware.ts`: Update for custom route protection
@@ -141,7 +141,7 @@ This implementation plan creates a clean, modern starter template with the follo
   - **Step Dependencies**: Step 11
 
 ## Server Actions and API Routes
-- [ ] Step 13: Set up basic server actions framework
+- [x] Step 13: Set up basic server actions framework
   - **Task**: Create the structure for server actions with validation.
   - **Files**:
     - `actions/index.ts`: Server actions exports
@@ -149,14 +149,14 @@ This implementation plan creates a clean, modern starter template with the follo
     - `actions/types.ts`: Type definitions for actions
   - **Step Dependencies**: Step 12
 
-- [ ] Step 14: Implement user profile server actions
+- [x] Step 14: Implement user profile server actions
   - **Task**: Create server actions for user profile management.
   - **Files**:
     - `actions/user.ts`: User profile actions
     - `lib/validation/user.ts`: User validation schemas
   - **Step Dependencies**: Step 13
 
-- [ ] Step 15: Create API route utilities
+- [x] Step 15: Create API route utilities
   - **Task**: Set up utility functions for API routes and error handling.
   - **Files**:
     - `lib/api.ts`: API utilities
