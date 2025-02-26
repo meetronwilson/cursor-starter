@@ -70,7 +70,7 @@ export function DashboardSidebar() {
         </SheetTrigger>
         <SheetContent side="left" className="w-72 p-0">
           <div className="flex flex-col h-full">
-            <div className="px-6 py-4 border-b">
+            <div className="px-6 py-4 border-b flex-shrink-0">
               <Link href="/dashboard" className="flex items-center gap-2 font-bold text-xl">
                 CursorStarter
               </Link>
@@ -93,7 +93,7 @@ export function DashboardSidebar() {
                 </Link>
               ))}
             </nav>
-            <div className="border-t px-6 py-4 mt-auto">
+            <div className="border-t px-6 py-4 mt-auto flex-shrink-0">
               <UserProfileButton />
             </div>
           </div>
@@ -101,8 +101,8 @@ export function DashboardSidebar() {
       </Sheet>
 
       {/* Desktop Navigation */}
-      <div className="hidden lg:flex lg:flex-col lg:w-72 lg:border-r lg:min-h-screen lg:sticky lg:top-0">
-        <div className="px-6 py-4 border-b">
+      <div className="hidden lg:flex lg:flex-col lg:w-72 lg:border-r lg:h-screen lg:sticky lg:top-0 lg:overflow-hidden">
+        <div className="px-6 py-4 border-b flex-shrink-0">
           <Link href="/dashboard" className="flex items-center gap-2 font-bold text-xl">
             CursorStarter
           </Link>
@@ -126,7 +126,7 @@ export function DashboardSidebar() {
           ))}
         </nav>
         
-        <div className="border-t px-6 py-4 shrink-0">
+        <div className="border-t px-6 py-4 flex-shrink-0">
           <UserProfileButton />
         </div>
       </div>
