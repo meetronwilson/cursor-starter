@@ -19,6 +19,7 @@ export const users = pgTable('users', {
   firstName: text('first_name'),
   lastName: text('last_name'),
   imageUrl: text('image_url'),
+  bio: text('bio'),
   
   // Stripe information
   stripeCustomerId: text('stripe_customer_id').unique(),

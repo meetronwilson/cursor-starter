@@ -11,50 +11,50 @@ import { SlideIn } from "@/components/utilities/animations/slide-in";
 
 const testimonials = [
   {
-    content: "Vibe Coding has completely transformed my development workflow. I'm building applications 3x faster by letting AI handle the implementation details while I focus on the big picture.",
+    content: "This platform has completely transformed how I work. The interface is intuitive and the features are exactly what I needed.",
     author: {
-      name: "Sarah Johnson",
-      role: "Full-Stack Developer",
+      name: "Emma Wilson",
+      role: "Product Manager",
       image: "https://randomuser.me/api/portraits/women/1.jpg",
     },
   },
   {
-    content: "As someone new to programming, Vibe Coding has been a game-changer. I can express my ideas in natural language and watch them transform into working code. It's like having a senior developer by my side.",
+    content: "I've tried many similar tools, but this one stands out for its performance and reliability. It's become essential to my workflow.",
     author: {
-      name: "Michael Chen",
-      role: "Startup Founder",
+      name: "Alex Chen",
+      role: "Software Engineer",
       image: "https://randomuser.me/api/portraits/men/2.jpg",
     },
   },
   {
-    content: "The flow state I achieve with Vibe Coding is incredible. I'm more creative, productive, and actually enjoy the development process now that I'm not fighting with syntax and boilerplate code.",
+    content: "The customer support is exceptional. Any time I've had an issue, the team has been quick to respond and incredibly helpful.",
     author: {
-      name: "Emma Rodriguez",
-      role: "Frontend Engineer",
+      name: "Sarah Johnson",
+      role: "Marketing Director",
       image: "https://randomuser.me/api/portraits/women/3.jpg",
     },
   },
   {
-    content: "Our team has adopted Vibe Coding for rapid prototyping, and we're delivering MVPs in days instead of weeks. The ability to iterate quickly with AI assistance has been invaluable for our business.",
+    content: "This tool has saved me countless hours of work. The automation features are particularly impressive.",
     author: {
-      name: "David Kim",
-      role: "Product Manager",
+      name: "Michael Brown",
+      role: "UX Designer",
       image: "https://randomuser.me/api/portraits/men/4.jpg",
     },
   },
   {
-    content: "I was skeptical about AI-assisted coding, but Vibe Coding has made me a believer. The quality of the generated code is impressive, and it's helped me learn best practices I wouldn't have discovered otherwise.",
+    content: "The recent updates have made an already great product even better. I appreciate how the team continuously improves the platform.",
     author: {
-      name: "Olivia Martinez",
-      role: "Computer Science Student",
+      name: "Jessica Lee",
+      role: "Content Strategist",
       image: "https://randomuser.me/api/portraits/women/5.jpg",
     },
   },
   {
-    content: "Vibe Coding has democratized software development. Our non-technical team members can now contribute to our codebase by describing features in plain English, which has accelerated our development cycle.",
+    content: "I was skeptical at first, but after using it for a month, I'm completely sold. It's worth every penny.",
     author: {
-      name: "James Wilson",
-      role: "CTO at TechInnovate",
+      name: "David Kim",
+      role: "Startup Founder",
       image: "https://randomuser.me/api/portraits/men/6.jpg",
     },
   },

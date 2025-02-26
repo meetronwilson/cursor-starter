@@ -54,6 +54,7 @@ export const updateProfile: AuthenticatedAction<typeof updateProfileSchema._type
       .set({
         firstName: data.firstName,
         lastName: data.lastName,
+        bio: data.bio,
         updatedAt: new Date(),
       })
       .where(eq(users.id, user.id))
@@ -80,6 +81,7 @@ export const updateTheme: AuthenticatedAction<{ theme: string }, SelectUser> =
       // In a real application, you would store preferences in a separate table
       // or add a preferences JSON column to the users table
       // For now, we'll just return the user without changes
+      console.log(`Theme preference set to: ${data.theme}`);
       
       return user;
     }); 
