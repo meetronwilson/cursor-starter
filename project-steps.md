@@ -288,6 +288,15 @@ This implementation plan creates a clean, modern starter template with the follo
     - `actions/profile.ts`: Profile-related server actions
   - **Step Dependencies**: Step 27
 
+- [x] Step 29: Create billing section with Stripe data
+  - **Task**: Implement a billing page that displays subscription information and payment history.
+  - **Files**:
+    - `app/(auth)/billing/page.tsx`: Billing page
+    - `app/(auth)/billing/_components/billing-history.tsx`: Billing history component
+    - `app/(auth)/billing/_components/payment-methods.tsx`: Payment methods component
+    - `app/(auth)/billing/layout.tsx`: Billing layout
+  - **Step Dependencies**: Step 28
+
 ## Error Handling and Finalization
 - [ ] Step 30: Implement global error handling
   - **Task**: Create error boundary components and error pages.
