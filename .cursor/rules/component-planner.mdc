@@ -1,0 +1,9 @@
+---
+description: Follow this rule when you creating new components
+globs: 
+alwaysApply: false
+---
+- Always use shadcn cli if the component is available
+- Please reach the hmtl that I pass in to get an idea
+- Please suggest a comprehensive plan to develop the component to look amazing
+- Please do not write any code until I approve
