@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { ToastProvider } from "@/components/providers/toast-provider";
+import { Navbar } from "@/app/_components/marketing/navbar";
+import { Footer } from "@/app/_components/marketing/footer";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -16,9 +18,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Next.js Starter Template",
-  description: "A modern Next.js starter template with Tailwind CSS, Shadcn UI, and more.",
-  keywords: ["Next.js", "React", "Tailwind CSS", "Shadcn UI", "Starter Template"],
+  title: {
+    default: "Slack Clone - Modern Team Communication",
+    template: "%s | Slack Clone",
+  },
+  description: "A powerful, feature-rich team communication platform built with Next.js",
+  keywords: ["Slack Clone", "Team Communication", "Chat", "Collaboration", "Next.js"],
   authors: [
     {
       name: "Your Name",
@@ -39,8 +44,12 @@ export default function RootLayout({
           className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-background font-sans antialiased`}
         >
           <ThemeProvider>
-            {children}
-            <ToastProvider />
+            <div className="flex min-h-screen flex-col">
+              <Navbar />
+              <main className="flex-1">{children}</main>
+              <Footer />
+              <ToastProvider />
+            </div>
           </ThemeProvider>
         </body>
       </html>

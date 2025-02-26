@@ -232,8 +232,6 @@ This implementation plan creates a clean, modern starter template with the follo
   - **Task**: Build a marketing homepage with key sections.
   - **Files**:
     - `app/page.tsx` : Marketing homepage
-    - `app/(marketing)/page.tsx`: Marketing homepage
-    - `app/(marketing)/layout.tsx`: Marketing layout
     - `app/_components/marketing/hero.tsx`: Hero section
     - `app/_components/marketing/features.tsx`: Features section
     - `app/_components/marketing/testimonials.tsx`: Testimonials section
@@ -251,10 +249,10 @@ This implementation plan creates a clean, modern starter template with the follo
     - `app/pricing/_components/pricing-faq.tsx`: Pricing FAQ component
   - **Step Dependencies**: Step 23
 
-- [ ] Step 25: Implement marketing layouts and shared components
+- [x] Step 25: Implement marketing layouts and shared components
   - **Task**: Create layouts and components for marketing pages.
   - **Files**:
-    - `app/(marketing)/layout.tsx`: Marketing section layout
+    - `app/layout.tsx`: Updated root layout with marketing components
     - `app/_components/marketing/navbar.tsx`: Marketing navbar component
     - `app/_components/marketing/footer.tsx`: Marketing footer component
     - `app/_components/shared/logo.tsx`: Logo component

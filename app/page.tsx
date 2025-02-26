@@ -10,18 +10,18 @@ import { Pricing } from "@/app/_components/marketing/pricing";
 import { CTA } from "@/app/_components/marketing/cta";
 
 export const metadata: Metadata = {
-  title: "Next.js Starter Template - Modern SaaS Platform",
-  description: "A powerful, feature-rich starter template for building modern SaaS applications with Next.js, Tailwind CSS, and more.",
+  title: "Slack Clone - Modern Team Communication",
+  description: "A powerful, feature-rich team communication platform built with Next.js",
 };
 
 export default function Home() {
   return (
-    <main>
+    <>
       <Hero />
       <Features />
       <Testimonials />
       <Pricing />
       <CTA />
-    </main>
+    </>
   );
 }
