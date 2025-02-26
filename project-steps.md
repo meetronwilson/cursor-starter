@@ -210,7 +210,7 @@ This implementation plan creates a clean, modern starter template with the follo
     - `components/layout/container.tsx`: Container component
   - **Step Dependencies**: Step 19
 
-- [ ] Step 21: Implement animated components with Framer Motion
+- [x] Step 21: Implement animated components with Framer Motion
   - **Task**: Create reusable animated components using Framer Motion.
   - **Files**:
     - `components/utilities/animations/fade-in.tsx`: Fade-in animation
