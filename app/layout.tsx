@@ -19,11 +19,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Slack Clone - Modern Team Communication",
-    template: "%s | Slack Clone",
+    default: "Next.js Starter Template",
+    template: "%s | Next.js Starter Template",
   },
-  description: "A powerful, feature-rich team communication platform built with Next.js",
-  keywords: ["Slack Clone", "Team Communication", "Chat", "Collaboration", "Next.js"],
+  description: "A modern Next.js starter template with Tailwind CSS, Shadcn UI, and more.",
+  keywords: ["Next.js", "React", "Tailwind CSS", "Shadcn UI", "Starter Template"],
   authors: [
     {
       name: "Your Name",

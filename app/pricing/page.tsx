@@ -8,7 +8,7 @@ import { PricingFAQ } from "@/app/pricing/_components/pricing-faq";
 import { Container } from "@/components/layout/container";
 
 export const metadata: Metadata = {
-  title: "Pricing | Slack Clone",
+  title: "Pricing | Next.js Starter Template",
   description: "Choose the right plan for your team",
 };
 

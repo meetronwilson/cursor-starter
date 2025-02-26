@@ -1,7 +1,7 @@
 /**
  * Logo component for the application
  */
-import { MessageSquare } from "lucide-react";
+import { Layers } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface LogoProps {
@@ -19,10 +19,10 @@ export function Logo({
 }: LogoProps) {
   return (
     <div className={cn("flex items-center gap-2", className)}>
-      <MessageSquare className={cn("h-6 w-6 text-primary", iconClassName)} />
+      <Layers className={cn("h-6 w-6 text-primary", iconClassName)} />
       {showText && (
         <span className={cn("font-bold text-xl", textClassName)}>
-          SlackClone
+          NextStarter
         </span>
       )}
     </div>
