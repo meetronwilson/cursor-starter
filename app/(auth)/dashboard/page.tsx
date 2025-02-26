@@ -2,27 +2,15 @@
  * Main dashboard page for authenticated users
  * Displays overview statistics and recent activity
  */
-"use client";
-
+import { Suspense } from "react";
 import { DashboardHeader } from "./_components/dashboard-header";
-import { DashboardStats } from "./_components/dashboard-stats";
-import { DataChart } from "./_components/data-chart";
-import { DataTable } from "./_components/data-table";
-import { ActivityFeed } from "./_components/activity-feed";
-import { useDashboardData } from "@/lib/hooks/use-dashboard-data";
+import { DashboardContent } from "./_components/dashboard-content";
+import { Skeleton } from "@/components/ui/skeleton";
 
 // Note: Metadata must be exported from a Server Component
 // This is a client component, so we need to add metadata in the layout file instead
 
 export default function DashboardPage() {
-  const { 
-    userChartData, 
-    revenueChartData, 
-    conversationChartData, 
-    tableData, 
-    activityFeed
-  } = useDashboardData();
-
   return (
     <div className="flex flex-col min-h-screen">
       <DashboardHeader title="Dashboard" />
@@ -34,45 +22,43 @@ export default function DashboardPage() {
           </p>
         </div>
         
-        <DashboardStats />
-        
-        <div className="grid gap-6 md:grid-cols-2">
-          <DataChart 
-            title="User Growth" 
-            description="New and active users over time"
-            data={userChartData}
-            type="line"
-          />
-          <DataChart 
-            title="Revenue" 
-            description="Monthly recurring revenue"
-            data={revenueChartData}
-            type="bar"
-          />
-        </div>
-        
-        <div className="grid gap-6 md:grid-cols-3">
-          <DataChart 
-            title="Conversation Types" 
-            description="Distribution by type"
-            data={conversationChartData}
-            type="pie"
-            className="md:col-span-1"
-          />
-          <ActivityFeed 
-            title="Recent Activity" 
-            description="Latest actions and events"
-            data={activityFeed}
-            className="md:col-span-2"
-          />
-        </div>
-        
-        <DataTable 
-          title="User Management" 
-          description="View and manage users"
-          data={tableData}
-        />
+        <Suspense fallback={<DashboardSkeleton />}>
+          <DashboardContent />
+        </Suspense>
       </main>
+    </div>
+  );
+}
+
+function DashboardSkeleton() {
+  return (
+    <div className="space-y-8">
+      {/* Skeleton for stats */}
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        {Array.from({ length: 4 }).map((_, i) => (
+          <Skeleton key={i} className="h-32 rounded-lg" />
+        ))}
+      </div>
+      
+      {/* Skeleton for charts */}
+      <div className="grid gap-6 md:grid-cols-2">
+        <Skeleton className="h-80 rounded-lg" />
+        <Skeleton className="h-80 rounded-lg" />
+      </div>
+      
+      {/* Skeleton for activity feed and chart */}
+      <div className="grid gap-6 md:grid-cols-3">
+        <Skeleton className="h-80 rounded-lg" />
+        <Skeleton className="h-80 rounded-lg md:col-span-2" />
+      </div>
+      
+      {/* Skeleton for table */}
+      <div className="space-y-4">
+        <Skeleton className="h-10 w-full rounded-lg" />
+        {Array.from({ length: 5 }).map((_, i) => (
+          <Skeleton key={i} className="h-16 w-full rounded-lg" />
+        ))}
+      </div>
     </div>
   );
 } 

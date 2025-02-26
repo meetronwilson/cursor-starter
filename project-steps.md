@@ -314,7 +314,7 @@ This implementation plan creates a clean, modern starter template with the follo
     - `lib/metadata.ts`: Metadata utilities
   - **Step Dependencies**: Step 30
 
-- [ ] Step 32: Add loading states and Suspense boundaries
+- [x] Step 32: Add loading states and Suspense boundaries
   - **Task**: Implement loading states for a better user experience.
   - **Files**:
     - `app/loading.tsx`: Root loading component
