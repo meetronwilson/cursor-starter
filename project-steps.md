@@ -259,43 +259,43 @@ This implementation plan creates a clean, modern starter template with the follo
   - **Step Dependencies**: Step 24
 
 ## Dashboard and Authenticated Routes
-- [ ] Step 26: Create dashboard layout and main page
+- [x] Step 26: Create dashboard layout and main page
   - **Task**: Implement the main dashboard layout and landing page.
   - **Files**:
-    - `app/(dashboard)/layout.tsx`: Dashboard layout
-    - `app/(dashboard)/dashboard/page.tsx`: Dashboard homepage
-    - `app/(dashboard)/dashboard/_components/dashboard-header.tsx`: Dashboard header
-    - `app/(dashboard)/dashboard/_components/dashboard-sidebar.tsx`: Dashboard sidebar
-    - `app/(dashboard)/dashboard/_components/dashboard-stats.tsx`: Stats component
+    - `app/(auth)/layout.tsx`: Dashboard layout
+    - `app/(auth)/dashboard/page.tsx`: Dashboard homepage
+    - `app/(auth)/dashboard/_components/dashboard-header.tsx`: Dashboard header
+    - `app/(auth)/dashboard/_components/dashboard-sidebar.tsx`: Dashboard sidebar
+    - `app/(auth)/dashboard/_components/dashboard-stats.tsx`: Stats component
   - **Step Dependencies**: Step 25
 
 - [ ] Step 27: Create mock data visualizations for dashboard
   - **Task**: Implement sample data visualizations for the dashboard.
   - **Files**:
-    - `app/(dashboard)/dashboard/_components/data-chart.tsx`: Data chart component
-    - `app/(dashboard)/dashboard/_components/data-table.tsx`: Data table component
-    - `app/(dashboard)/dashboard/_components/activity-feed.tsx`: Activity feed component
+    - `app/(auth)/dashboard/_components/data-chart.tsx`: Data chart component
+    - `app/(auth)/dashboard/_components/data-table.tsx`: Data table component
+    - `app/(auth)/dashboard/_components/activity-feed.tsx`: Activity feed component
     - `lib/hooks/use-dashboard-data.ts`: Hook for mock dashboard data
   - **Step Dependencies**: Step 26
 
 - [ ] Step 28: Implement user profile page with Clerk integration
   - **Task**: Create a profile page that uses Clerk data and profile management.
   - **Files**:
-    - `app/(dashboard)/profile/page.tsx`: User profile page
-    - `app/(dashboard)/profile/_components/profile-form.tsx`: Profile form component
-    - `app/(dashboard)/profile/_components/account-settings.tsx`: Account settings component
-    - `app/(dashboard)/profile/_components/profile-header.tsx`: Profile header component
+    - `app/(auth)/profile/page.tsx`: User profile page
+    - `app/(auth)/profile/_components/profile-form.tsx`: Profile form component
+    - `app/(auth)/profile/_components/account-settings.tsx`: Account settings component
+    - `app/(auth)/profile/_components/profile-header.tsx`: Profile header component
     - `actions/profile.ts`: Profile-related server actions
   - **Step Dependencies**: Step 27
 
 - [ ] Step 29: Create billing section with Stripe data
   - **Task**: Implement billing pages with Stripe subscription information.
   - **Files**:
-    - `app/(dashboard)/billing/page.tsx`: Billing page
-    - `app/(dashboard)/billing/_components/subscription-info.tsx`: Subscription info component
-    - `app/(dashboard)/billing/_components/payment-method.tsx`: Payment method component
-    - `app/(dashboard)/billing/_components/billing-history.tsx`: Billing history component
-    - `app/(dashboard)/billing/_components/plan-selector.tsx`: Plan selector component
+    - `app/(auth)/billing/page.tsx`: Billing page
+    - `app/(auth)/billing/_components/subscription-info.tsx`: Subscription info component
+    - `app/(auth)/billing/_components/payment-method.tsx`: Payment method component
+    - `app/(auth)/billing/_components/billing-history.tsx`: Billing history component
+    - `app/(auth)/billing/_components/plan-selector.tsx`: Plan selector component
     - `actions/billing.ts`: Billing-related server actions
   - **Step Dependencies**: Step 28
 
@@ -320,7 +320,7 @@ This implementation plan creates a clean, modern starter template with the follo
   - **Task**: Implement loading states for a better user experience.
   - **Files**:
     - `app/loading.tsx`: Root loading component
-    - `app/(dashboard)/dashboard/loading.tsx`: Dashboard loading component
+    - `app/(auth)/dashboard/loading.tsx`: Dashboard loading component
     - `components/ui/skeleton.tsx`: Skeleton component
     - `components/utilities/loading-spinner.tsx`: Loading spinner component
   - **Step Dependencies**: Step 31

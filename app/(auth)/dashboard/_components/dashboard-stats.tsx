@@ -1,0 +1,105 @@
+/**
+ * Dashboard stats component with key metrics and visualizations
+ */
+"use client";
+
+import { 
+  ArrowUpRight, 
+  ArrowDownRight, 
+  Users, 
+  MessageSquare, 
+  CreditCard, 
+  Activity 
+} from "lucide-react";
+
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+
+interface StatCardProps {
+  title: string;
+  value: string;
+  description: string;
+  icon: React.ReactNode;
+  trend: {
+    value: string;
+    isPositive: boolean;
+  };
+}
+
+const stats: StatCardProps[] = [
+  {
+    title: "Total Users",
+    value: "2,543",
+    description: "Active users on the platform",
+    icon: <Users className="h-4 w-4 text-muted-foreground" />,
+    trend: {
+      value: "+12.5%",
+      isPositive: true,
+    },
+  },
+  {
+    title: "Conversations",
+    value: "12,453",
+    description: "Total conversations created",
+    icon: <MessageSquare className="h-4 w-4 text-muted-foreground" />,
+    trend: {
+      value: "+8.2%",
+      isPositive: true,
+    },
+  },
+  {
+    title: "Revenue",
+    value: "$12,234",
+    description: "Monthly recurring revenue",
+    icon: <CreditCard className="h-4 w-4 text-muted-foreground" />,
+    trend: {
+      value: "+2.5%",
+      isPositive: true,
+    },
+  },
+  {
+    title: "Active Sessions",
+    value: "324",
+    description: "Current active sessions",
+    icon: <Activity className="h-4 w-4 text-muted-foreground" />,
+    trend: {
+      value: "-4.3%",
+      isPositive: false,
+    },
+  },
+];
+
+export function DashboardStats() {
+  return (
+    <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      {stats.map((stat, index) => (
+        <Card key={index}>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">
+              {stat.title}
+            </CardTitle>
+            {stat.icon}
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">{stat.value}</div>
+            <p className="text-xs text-muted-foreground">
+              {stat.description}
+            </p>
+          </CardContent>
+          <CardFooter>
+            <div className="flex items-center text-sm">
+              {stat.trend.isPositive ? (
+                <ArrowUpRight className="mr-1 h-4 w-4 text-green-500" />
+              ) : (
+                <ArrowDownRight className="mr-1 h-4 w-4 text-red-500" />
+              )}
+              <span className={stat.trend.isPositive ? "text-green-500" : "text-red-500"}>
+                {stat.trend.value}
+              </span>
+              <span className="ml-1 text-muted-foreground">from last month</span>
+            </div>
+          </CardFooter>
+        </Card>
+      ))}
+    </div>
+  );
+} 
