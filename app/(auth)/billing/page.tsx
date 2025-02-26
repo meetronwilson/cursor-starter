@@ -1,20 +1,13 @@
 /**
  * Billing page for managing subscriptions and payment information
  */
-"use client";
-
-import { useState, useEffect } from "react";
-import { DashboardHeader } from "../dashboard/_components/dashboard-header";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { SubscriptionStatus } from "@/components/billing/subscription-status";
-import { PricingTable } from "@/components/billing/pricing-table";
-import { BillingHistory } from "./_components/billing-history";
-import { PaymentMethods } from "./_components/payment-methods";
+import { Suspense } from "react";
 import { getUserSubscription, getSubscriptionPlans } from "@/actions/subscription";
+import { BillingPageClient } from "./_components/billing-page-client";
+import { DashboardHeader } from "./_components/dashboard-header-server";
 import { Loader2 } from "lucide-react";
 
-// Define types for subscription data
+// Define types to match the client component
 interface Subscription {
   id: string;
   status: string;
@@ -27,7 +20,6 @@ interface Subscription {
   cancelAtPeriodEnd?: boolean;
 }
 
-// Define types for plan data
 interface Plan {
   id: string;
   name: string;
@@ -44,39 +36,40 @@ interface Plan {
   popular?: boolean;
 }
 
-export default function BillingPage() {
-  const [activeTab, setActiveTab] = useState("overview");
-  const [isLoading, setIsLoading] = useState(true);
-  const [subscription, setSubscription] = useState<Subscription | null>(null);
-  const [plans, setPlans] = useState<Plan[]>([]);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    async function loadData() {
-      try {
-        setIsLoading(true);
-        
-        // Fetch subscription data
-        const subscriptionResponse = await getUserSubscription();
-        if (subscriptionResponse.success) {
-          setSubscription(subscriptionResponse.data);
-        }
-        
-        // Fetch available plans
-        const plansResponse = await getSubscriptionPlans();
-        if (plansResponse.success) {
-          setPlans(plansResponse.data);
-        }
-      } catch (err) {
-        console.error("Error loading billing data:", err);
-        setError("Failed to load billing information. Please try again later.");
-      } finally {
-        setIsLoading(false);
-      }
-    }
-    
-    loadData();
-  }, []);
+export default async function BillingPage() {
+  // Fetch data server-side
+  const subscriptionResponse = await getUserSubscription();
+  const plansResponse = await getSubscriptionPlans();
+  
+  // Transform the data to match our expected types
+  let subscription: Subscription | null = null;
+  if (subscriptionResponse.success && subscriptionResponse.data) {
+    const data = subscriptionResponse.data;
+    subscription = {
+      id: data.id,
+      status: data.status,
+      productName: data.productName || undefined,
+      productId: data.productId || undefined,
+      priceId: data.priceId || undefined,
+      interval: data.interval || undefined,
+      amount: data.amount !== null ? data.amount : undefined,
+      currentPeriodEnd: data.currentPeriodEnd || undefined,
+      cancelAtPeriodEnd: data.cancelAtPeriodEnd !== null ? data.cancelAtPeriodEnd : undefined
+    };
+  }
+  
+  // Transform plans data
+  const plans: Plan[] = plansResponse.success 
+    ? plansResponse.data.map(plan => ({
+        id: plan.id,
+        name: plan.name,
+        description: plan.description || "",
+        price: plan.price,
+        features: plan.features,
+        priceIds: plan.priceIds,
+        popular: plan.popular
+      }))
+    : [];
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -90,55 +83,16 @@ export default function BillingPage() {
           </p>
         </div>
         
-        {isLoading ? (
+        <Suspense fallback={
           <div className="flex items-center justify-center h-64">
             <Loader2 className="w-8 h-8 animate-spin text-primary" />
           </div>
-        ) : error ? (
-          <Card>
-            <CardContent className="pt-6">
-              <div className="text-center text-destructive">{error}</div>
-            </CardContent>
-          </Card>
-        ) : (
-          <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-            <TabsList className="grid w-full max-w-md grid-cols-3">
-              <TabsTrigger value="overview">Overview</TabsTrigger>
-              <TabsTrigger value="plans">Plans</TabsTrigger>
-              <TabsTrigger value="history">History</TabsTrigger>
-            </TabsList>
-            
-            <div className="mt-6">
-              <TabsContent value="overview" className="space-y-6">
-                <div className="grid gap-6 md:grid-cols-2">
-                  <SubscriptionStatus subscription={subscription} />
-                  <PaymentMethods />
-                </div>
-              </TabsContent>
-              
-              <TabsContent value="plans" className="space-y-6">
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Subscription Plans</CardTitle>
-                    <CardDescription>
-                      Choose the plan that works best for you and your team.
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <PricingTable 
-                      plans={plans} 
-                      currentPlanId={subscription?.productId} 
-                    />
-                  </CardContent>
-                </Card>
-              </TabsContent>
-              
-              <TabsContent value="history" className="space-y-6">
-                <BillingHistory />
-              </TabsContent>
-            </div>
-          </Tabs>
-        )}
+        }>
+          <BillingPageClient 
+            subscription={subscription} 
+            plans={plans} 
+          />
+        </Suspense>
       </main>
     </div>
   );
