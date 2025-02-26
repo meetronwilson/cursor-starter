@@ -201,7 +201,7 @@ This implementation plan creates a clean, modern starter template with the follo
     - `app/layout.tsx`: Update with theme provider
   - **Step Dependencies**: Step 18
 
-- [ ] Step 20: Create layout components
+- [x] Step 20: Create layout components
   - **Task**: Build reusable layout components for the application.
   - **Files**:
     - `components/layout/navbar.tsx`: Navigation bar
