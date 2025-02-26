@@ -72,7 +72,7 @@ export function DashboardSidebar() {
           <div className="flex flex-col h-full">
             <div className="px-6 py-4 border-b">
               <Link href="/dashboard" className="flex items-center gap-2 font-bold text-xl">
-                NextStarter
+                CursorStarter
               </Link>
             </div>
             <nav className="flex-1 px-3 py-4">
@@ -104,7 +104,7 @@ export function DashboardSidebar() {
       <div className="hidden lg:flex lg:flex-col lg:w-72 lg:border-r lg:h-full">
         <div className="px-6 py-4 border-b">
           <Link href="/dashboard" className="flex items-center gap-2 font-bold text-xl">
-            NextStarter
+            CursorStarter
           </Link>
         </div>
         <nav className="flex-1 px-3 py-4">
