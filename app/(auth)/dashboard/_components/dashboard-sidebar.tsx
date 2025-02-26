@@ -75,7 +75,7 @@ export function DashboardSidebar() {
                 CursorStarter
               </Link>
             </div>
-            <nav className="flex-1 px-3 py-4">
+            <nav className="flex-1 px-3 py-4 overflow-y-auto">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
@@ -101,13 +101,14 @@ export function DashboardSidebar() {
       </Sheet>
 
       {/* Desktop Navigation */}
-      <div className="hidden lg:flex lg:flex-col lg:w-72 lg:border-r lg:h-full">
+      <div className="hidden lg:flex lg:flex-col lg:w-72 lg:border-r lg:min-h-screen lg:sticky lg:top-0">
         <div className="px-6 py-4 border-b">
           <Link href="/dashboard" className="flex items-center gap-2 font-bold text-xl">
             CursorStarter
           </Link>
         </div>
-        <nav className="flex-1 px-3 py-4">
+        
+        <nav className="flex-grow px-3 py-4 overflow-y-auto">
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -124,7 +125,8 @@ export function DashboardSidebar() {
             </Link>
           ))}
         </nav>
-        <div className="border-t px-6 py-4 mt-auto">
+        
+        <div className="border-t px-6 py-4 shrink-0">
           <UserProfileButton />
         </div>
       </div>
