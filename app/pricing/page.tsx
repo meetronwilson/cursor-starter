@@ -1,16 +1,18 @@
 /**
  * Pricing page that displays subscription plans and FAQs
  */
-import type { Metadata } from "next";
+import { Metadata } from "next";
+import { createMetadata } from "@/lib/metadata";
 
 import { PricingPlans } from "@/app/pricing/_components/pricing-plans";
 import { PricingFAQ } from "@/app/pricing/_components/pricing-faq";
 import { Container } from "@/components/layout/container";
 
-export const metadata: Metadata = {
-  title: "Pricing | Next.js Starter Template",
+export const metadata: Metadata = createMetadata({
+  title: "Pricing",
   description: "Choose the right plan for your team",
-};
+  keywords: ["pricing", "subscription", "plans", "billing"],
+});
 
 export default function PricingPage() {
   return (

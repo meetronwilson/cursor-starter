@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/providers/theme-provider";
 import { ToastProvider } from "@/components/providers/toast-provider";
 import { Navbar } from "@/app/_components/marketing/navbar";
 import { Footer } from "@/app/_components/marketing/footer";
+import { baseMetadata } from "@/lib/metadata";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -17,20 +18,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: {
-    default: "Next.js Starter Template",
-    template: "%s | Next.js Starter Template",
-  },
-  description: "A modern Next.js starter template with Tailwind CSS, Shadcn UI, and more.",
-  keywords: ["Next.js", "React", "Tailwind CSS", "Shadcn UI", "Starter Template"],
-  authors: [
-    {
-      name: "Your Name",
-      url: "https://yourwebsite.com",
-    },
-  ],
-};
+export const metadata: Metadata = baseMetadata;
 
 export default function RootLayout({
   children,

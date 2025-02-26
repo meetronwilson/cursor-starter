@@ -11,6 +11,9 @@ import { DataTable } from "./_components/data-table";
 import { ActivityFeed } from "./_components/activity-feed";
 import { useDashboardData } from "@/lib/hooks/use-dashboard-data";
 
+// Note: Metadata must be exported from a Server Component
+// This is a client component, so we need to add metadata in the layout file instead
+
 export default function DashboardPage() {
   const { 
     userChartData, 

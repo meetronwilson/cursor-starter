@@ -5,16 +5,15 @@
 import { redirect } from "next/navigation";
 import { auth } from "@clerk/nextjs/server";
 import { Metadata } from "next";
+import { createMetadata } from "@/lib/metadata";
 
 import { DashboardSidebar } from "./dashboard/_components/dashboard-sidebar";
 
-export const metadata: Metadata = {
-  title: {
-    default: "Dashboard | Next.js Starter Template",
-    template: "%s | Next.js Starter Template",
-  },
+export const metadata: Metadata = createMetadata({
+  title: "Dashboard",
   description: "Manage your account and view your dashboard",
-};
+  keywords: ["dashboard", "account", "profile", "settings"],
+});
 
 export default async function AuthLayout({
   children,
