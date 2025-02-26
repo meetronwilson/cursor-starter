@@ -1,0 +1,2 @@
+
+1. The CursorStarter header is shwoing like the layout of the marketing page.  I think we should proably remove it completely along with the dashboard button and theme switcher.  **do not*** remove the them switcher that is by the notifications and search

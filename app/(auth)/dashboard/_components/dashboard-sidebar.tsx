@@ -8,17 +8,27 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { 
   LayoutDashboard, 
-  Settings, 
-  CreditCard, 
-  Users, 
-  MessageSquare,
-  Menu
+  User,
+  CreditCard,
+  Menu,
+  LogOut
 } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { UserButton } from "@/components/auth/user-button";
+import { useAuth, useUser } from "@clerk/nextjs";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { 
+  Avatar, 
+  AvatarFallback, 
+  AvatarImage 
+} from "@/components/ui/avatar";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 interface NavItem {
   title: string;
@@ -33,19 +43,9 @@ const navItems: NavItem[] = [
     icon: <LayoutDashboard className="h-5 w-5" />,
   },
   {
-    title: "Conversations",
-    href: "/dashboard/conversations",
-    icon: <MessageSquare className="h-5 w-5" />,
-  },
-  {
-    title: "Users",
-    href: "/dashboard/users",
-    icon: <Users className="h-5 w-5" />,
-  },
-  {
-    title: "Settings",
-    href: "/dashboard/settings",
-    icon: <Settings className="h-5 w-5" />,
+    title: "Profile",
+    href: "/profile",
+    icon: <User className="h-5 w-5" />,
   },
   {
     title: "Billing",
@@ -93,8 +93,8 @@ export function DashboardSidebar() {
                 </Link>
               ))}
             </nav>
-            <div className="border-t px-6 py-4">
-              <UserButton />
+            <div className="border-t px-6 py-4 mt-auto">
+              <UserProfileButton />
             </div>
           </div>
         </SheetContent>
@@ -124,10 +124,54 @@ export function DashboardSidebar() {
             </Link>
           ))}
         </nav>
-        <div className="border-t px-6 py-4">
-          <UserButton />
+        <div className="border-t px-6 py-4 mt-auto">
+          <UserProfileButton />
         </div>
       </div>
     </>
+  );
+}
+
+function UserProfileButton() {
+  const { signOut } = useAuth();
+  const { user } = useUser();
+  
+  const initials = user?.firstName && user?.lastName 
+    ? `${user.firstName[0]}${user.lastName[0]}`
+    : user?.firstName?.[0] || user?.emailAddresses?.[0]?.emailAddress?.[0]?.toUpperCase() || '?';
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="ghost" className="p-0 h-auto w-full flex items-center gap-2 hover:bg-transparent">
+          <Avatar>
+            <AvatarImage src={user?.imageUrl} />
+            <AvatarFallback>{initials}</AvatarFallback>
+          </Avatar>
+          <div className="flex flex-col items-start flex-1">
+            <span className="text-sm font-medium">{user?.fullName || user?.emailAddresses?.[0]?.emailAddress}</span>
+            <span className="text-xs text-muted-foreground">Manage your account</span>
+          </div>
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end" className="w-56">
+        <DropdownMenuItem asChild>
+          <Link href="/profile">
+            <User className="mr-2 h-4 w-4" />
+            Profile
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <Link href="/billing">
+            <CreditCard className="mr-2 h-4 w-4" />
+            Billing
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => signOut()}>
+          <LogOut className="mr-2 h-4 w-4" />
+          Log out
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 } 
