@@ -20,6 +20,9 @@ export const users = pgTable('users', {
   lastName: text('last_name'),
   imageUrl: text('image_url'),
   
+  // Stripe information
+  stripeCustomerId: text('stripe_customer_id').unique(),
+  
   // Timestamps
   createdAt: timestamp('created_at').defaultNow().notNull(),
   updatedAt: timestamp('updated_at')

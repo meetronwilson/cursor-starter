@@ -165,7 +165,7 @@ This implementation plan creates a clean, modern starter template with the follo
   - **Step Dependencies**: Step 14
 
 ## Stripe Integration
-- [ ] Step 16: Set up Stripe integration
+- [x] Step 16: Set up Stripe integration
   - **Task**: Configure Stripe for payment processing and subscriptions.
   - **Files**:
     - `lib/stripe.ts`: Stripe client and utilities
@@ -176,7 +176,7 @@ This implementation plan creates a clean, modern starter template with the follo
     - Add Stripe API keys to `.env.local`
     - Set up a webhook endpoint in your Stripe dashboard
 
-- [ ] Step 17: Create subscription components
+- [x] Step 17: Create subscription components
   - **Task**: Implement UI components for subscription management.
   - **Files**:
     - `components/billing/pricing-table.tsx`: Pricing table component
@@ -184,7 +184,7 @@ This implementation plan creates a clean, modern starter template with the follo
     - `components/billing/subscription-status.tsx`: Subscription status component
   - **Step Dependencies**: Step 16
 
-- [ ] Step 18: Implement checkout and billing portal
+- [x] Step 18: Implement checkout and billing portal
   - **Task**: Create API routes and actions for Stripe checkout and customer portal.
   - **Files**:
     - `app/api/create-checkout-session/route.ts`: Checkout session API route
@@ -193,7 +193,7 @@ This implementation plan creates a clean, modern starter template with the follo
   - **Step Dependencies**: Step 17
 
 ## UI Components and Layout
-- [ ] Step 19: Set up theme provider with dark mode
+- [x] Step 19: Set up theme provider with dark mode
   - **Task**: Implement theming with dark mode support using Tailwind and next-themes.
   - **Files**:
     - `components/providers/theme-provider.tsx`: Theme provider
