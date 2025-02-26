@@ -242,12 +242,12 @@ This implementation plan creates a clean, modern starter template with the follo
   - **Step Dependencies**: Steps 19, 20, 21, 22
 
 ## Marketing Pages
-- [ ] Step 24: Create pricing page
+- [x] Step 24: Create pricing page
   - **Task**: Implement a pricing page showcasing subscription tiers.
   - **Files**:
     - `app/pricing/page.tsx`: Pricing page
-    - `app/pricing/_components/pricing-header.tsx`: Pricing header component
-    - `app/pricing/_components/pricing-tiers.tsx`: Pricing tiers component
+    - `app/pricing/_components/pricing-card.tsx`: Pricing card component
+    - `app/pricing/_components/pricing-plans.tsx`: Pricing plans component
     - `app/pricing/_components/pricing-faq.tsx`: Pricing FAQ component
   - **Step Dependencies**: Step 23
 
