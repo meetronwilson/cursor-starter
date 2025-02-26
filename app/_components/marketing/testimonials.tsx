@@ -62,7 +62,7 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <div className="py-24 sm:py-32">
+    <div id="testimonials" className="py-24 sm:py-32">
       <Container>
         <FadeIn>
           <div className="mx-auto max-w-2xl text-center">

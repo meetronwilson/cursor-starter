@@ -5,6 +5,7 @@
 
 import Link from "next/link";
 import { Menu } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/layout/container";
@@ -22,6 +23,31 @@ const navItems = [
 
 export function Navbar() {
   const { isSignedIn } = useAuth();
+  const router = useRouter();
+
+  // Handle anchor link clicks
+  const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    
+    // Check if it's a hash link
+    if (href.includes('#')) {
+      const [path, hash] = href.split('#');
+      
+      // If we're already on the homepage, just scroll to the element
+      if (path === '/' || path === '') {
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else {
+        // Navigate to the page first, then scroll to the element
+        router.push(href);
+      }
+    } else {
+      // Regular navigation for non-hash links
+      router.push(href);
+    }
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -33,13 +59,14 @@ export function Navbar() {
             </Link>
             <nav className="hidden md:flex gap-6">
               {navItems.map((item) => (
-                <Link
+                <a
                   key={item.href}
                   href={item.href}
-                  className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                  onClick={(e) => handleAnchorClick(e, item.href)}
+                  className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground cursor-pointer"
                 >
                   {item.label}
-                </Link>
+                </a>
               ))}
             </nav>
           </div>
@@ -78,13 +105,14 @@ export function Navbar() {
                 <div className="flex flex-col gap-6 pt-6">
                   <nav className="flex flex-col gap-4">
                     {navItems.map((item) => (
-                      <Link
+                      <a
                         key={item.href}
                         href={item.href}
-                        className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                        onClick={(e) => handleAnchorClick(e, item.href)}
+                        className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground cursor-pointer"
                       >
                         {item.label}
-                      </Link>
+                      </a>
                     ))}
                   </nav>
                   <div className="flex flex-col gap-2">

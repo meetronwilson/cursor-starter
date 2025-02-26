@@ -51,7 +51,7 @@ const features = [
 
 export function Features() {
   return (
-    <div className="bg-muted/40 py-24 sm:py-32">
+    <div id="features" className="bg-muted/40 py-24 sm:py-32">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
           <FadeIn>
