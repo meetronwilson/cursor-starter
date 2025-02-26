@@ -58,7 +58,9 @@ You will see  tags in the code. These are context tags that you should use to he
 
 ## Rules
 
-Follow these rules when building the app.
+You **must** follow one or more of these rules before proceeding to writing code
+**Announce** which rule(s) you are following
+If you do not find a rule that applies please present a plan for approval before writing code
 - auth work should follow @auth.mdc
 - Backend work should follow @backend.mdc 
 - env varialbes should follow @env.mdc

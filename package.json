@@ -13,7 +13,14 @@
     "analyze": "ANALYZE=true next build",
     "deploy": "next build && next start",
     "vercel-build": "next build",
-    "postinstall": "next build"
+    "postinstall": "next build",
+    "clean": "rm -rf .next node_modules",
+    "clean:cache": "rm -rf .next",
+    "type-check": "tsc --noEmit",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "prepare-release": "npm run lint && npm run type-check && npm run build",
+    "dev:turbo": "next dev --turbopack",
+    "dev:debug": "NODE_OPTIONS='--inspect' next dev"
   },
   "dependencies": {
     "@clerk/nextjs": "^6.12.0",
