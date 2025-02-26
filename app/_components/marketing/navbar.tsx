@@ -1,13 +1,15 @@
 /**
  * Marketing navbar component with logo, navigation links, and auth buttons
  */
+"use client";
+
 import Link from "next/link";
 import { Menu } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/layout/container";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { SignInButton, SignUpButton } from "@clerk/nextjs";
+import { SignInButton, SignUpButton, useAuth } from "@clerk/nextjs";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { Logo } from "@/app/_components/shared/logo";
 
@@ -19,6 +21,8 @@ const navItems = [
 ];
 
 export function Navbar() {
+  const { isSignedIn } = useAuth();
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <Container>
@@ -41,16 +45,26 @@ export function Navbar() {
           </div>
           <div className="flex items-center gap-4">
             <div className="hidden md:flex items-center gap-2">
-              <SignInButton mode="modal">
-                <Button variant="ghost" size="sm">
-                  Sign in
-                </Button>
-              </SignInButton>
-              <SignUpButton mode="modal">
-                <Button size="sm">
-                  Get Started
-                </Button>
-              </SignUpButton>
+              {isSignedIn ? (
+                <Link href="/dashboard">
+                  <Button size="sm">
+                    Dashboard
+                  </Button>
+                </Link>
+              ) : (
+                <>
+                  <SignInButton mode="modal">
+                    <Button variant="ghost" size="sm">
+                      Sign in
+                    </Button>
+                  </SignInButton>
+                  <SignUpButton mode="modal">
+                    <Button size="sm">
+                      Get Started
+                    </Button>
+                  </SignUpButton>
+                </>
+              )}
             </div>
             <ThemeToggle />
             <Sheet>
@@ -74,16 +88,26 @@ export function Navbar() {
                     ))}
                   </nav>
                   <div className="flex flex-col gap-2">
-                    <SignInButton mode="modal">
-                      <Button variant="ghost" size="sm" className="w-full justify-start">
-                        Sign in
-                      </Button>
-                    </SignInButton>
-                    <SignUpButton mode="modal">
-                      <Button size="sm" className="w-full justify-start">
-                        Get Started
-                      </Button>
-                    </SignUpButton>
+                    {isSignedIn ? (
+                      <Link href="/dashboard">
+                        <Button size="sm" className="w-full justify-start">
+                          Dashboard
+                        </Button>
+                      </Link>
+                    ) : (
+                      <>
+                        <SignInButton mode="modal">
+                          <Button variant="ghost" size="sm" className="w-full justify-start">
+                            Sign in
+                          </Button>
+                        </SignInButton>
+                        <SignUpButton mode="modal">
+                          <Button size="sm" className="w-full justify-start">
+                            Get Started
+                          </Button>
+                        </SignUpButton>
+                      </>
+                    )}
                   </div>
                 </div>
               </SheetContent>

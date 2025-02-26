@@ -4,19 +4,12 @@
  */
 "use client";
 
-import { Metadata } from "next";
-
 import { DashboardHeader } from "./_components/dashboard-header";
 import { DashboardStats } from "./_components/dashboard-stats";
 import { DataChart } from "./_components/data-chart";
 import { DataTable } from "./_components/data-table";
 import { ActivityFeed } from "./_components/activity-feed";
 import { useDashboardData } from "@/lib/hooks/use-dashboard-data";
-
-export const metadata: Metadata = {
-  title: "Dashboard",
-  description: "Overview of your account and activity",
-};
 
 export default function DashboardPage() {
   const { 
