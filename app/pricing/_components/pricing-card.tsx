@@ -7,6 +7,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
+import { CheckoutButton } from "./checkout-button";
 
 export interface PricingFeature {
   text: string;
@@ -14,13 +15,15 @@ export interface PricingFeature {
 }
 
 export interface PricingTier {
+  id: string;
   name: string;
   description: string;
   price: string;
   priceDescription?: string;
   features: PricingFeature[];
   buttonText: string;
-  buttonLink: string;
+  buttonLink?: string;
+  priceId?: string;
   popular?: boolean;
 }
 
@@ -29,6 +32,9 @@ interface PricingCardProps {
 }
 
 export function PricingCard({ tier }: PricingCardProps) {
+  // Determine if this is a free plan (no price ID)
+  const isFree = !tier.priceId;
+
   return (
     <Card className={cn(
       "flex flex-col justify-between",
@@ -71,15 +77,24 @@ export function PricingCard({ tier }: PricingCardProps) {
         </CardContent>
       </div>
       <CardFooter>
-        <Button
-          asChild
-          className="w-full"
-          variant={tier.popular ? "default" : "outline"}
-        >
-          <Link href={tier.buttonLink}>
-            {tier.buttonText}
-          </Link>
-        </Button>
+        {isFree || tier.name === "Vibe Team" ? (
+          <Button
+            asChild
+            className="w-full"
+            variant={tier.popular ? "default" : "outline"}
+          >
+            <Link href={tier.buttonLink || "/sign-up"}>
+              {tier.buttonText}
+            </Link>
+          </Button>
+        ) : (
+          <CheckoutButton
+            priceId={tier.priceId || ""}
+            buttonText={tier.buttonText}
+            variant={tier.popular ? "default" : "outline"}
+            className="w-full"
+          />
+        )}
       </CardFooter>
     </Card>
   );

@@ -1,12 +1,28 @@
 /**
  * Pricing plans component that displays all available subscription tiers
  */
-import { PricingCard, PricingTier } from "./pricing-card";
+import { getSubscriptionPlans } from "@/actions/subscription";
+import { PricingCard } from "./pricing-card";
 import { Container } from "@/components/layout/container";
 
-// Define the pricing tiers
-const pricingTiers: PricingTier[] = [
+// Define the pricing tiers with Stripe price IDs
+export interface PricingTier {
+  id: string;
+  name: string;
+  description: string;
+  price: string;
+  priceDescription?: string;
+  features: { text: string; included: boolean }[];
+  buttonText: string;
+  buttonLink?: string;
+  priceId?: string;
+  popular?: boolean;
+}
+
+// Fallback pricing tiers in case the server request fails
+const fallbackPricingTiers: PricingTier[] = [
   {
+    id: "free",
     name: "Vibe Explorer",
     description: "For individual developers",
     price: "$0",
@@ -23,6 +39,7 @@ const pricingTiers: PricingTier[] = [
     buttonLink: "/sign-up",
   },
   {
+    id: "pro",
     name: "Vibe Creator",
     description: "For professional developers",
     price: "$19",
@@ -36,10 +53,11 @@ const pricingTiers: PricingTier[] = [
       { text: "Priority support", included: false },
     ],
     buttonText: "Start Free Trial",
-    buttonLink: "/sign-up?plan=pro",
+    priceId: "price_1QufoKLhAthRzToeZ9WkzgB9", // Replace with your actual Stripe price ID
     popular: true,
   },
   {
+    id: "team",
     name: "Vibe Team",
     description: "For development teams",
     price: "$49",
@@ -53,16 +71,34 @@ const pricingTiers: PricingTier[] = [
       { text: "Priority support", included: true },
     ],
     buttonText: "Contact Sales",
-    buttonLink: "/contact",
+    priceId: "price_1QufoKLhAthRzToeZ9WkzgB9", // Replace with your actual Stripe price ID
   },
 ];
 
-export function PricingPlans() {
+export async function PricingPlans() {
+  // Try to fetch plans from the server
+  const plansResponse = await getSubscriptionPlans();
+  
+  // Use the fetched plans if available, otherwise use fallback
+  const plans = plansResponse.success && plansResponse.data.length > 0
+    ? plansResponse.data.map(plan => ({
+        id: plan.id,
+        name: plan.name,
+        description: plan.description || "",
+        price: `$${plan.price.monthly}`,
+        priceDescription: "per month",
+        features: plan.features.map(feature => ({ text: feature, included: true })),
+        buttonText: plan.name === "Vibe Explorer" ? "Start Vibing" : "Subscribe",
+        priceId: plan.priceIds.monthly,
+        popular: plan.popular,
+      } as PricingTier))
+    : fallbackPricingTiers;
+
   return (
     <Container>
       <div className="grid gap-8 md:grid-cols-3">
-        {pricingTiers.map((tier, index) => (
-          <PricingCard key={index} tier={tier} />
+        {plans.map((tier) => (
+          <PricingCard key={tier.id} tier={tier} />
         ))}
       </div>
     </Container>

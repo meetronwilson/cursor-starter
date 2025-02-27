@@ -7,9 +7,9 @@
 import { useState } from "react";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { CheckIcon } from "lucide-react";
+import { CheckIcon, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 // Define pricing plan types
 export type PricingPlan = {
@@ -37,7 +37,7 @@ interface PricingTableProps {
 
 export function PricingTable({ plans, currentPlanId, onSelectPlan }: PricingTableProps) {
   const [billingInterval, setBillingInterval] = useState<"monthly" | "annually">("monthly");
-  const router = useRouter();
+  const [loadingPlanId, setLoadingPlanId] = useState<string | null>(null);
 
   // Calculate the discount percentage for annual billing
   const getDiscountPercentage = (plan: PricingPlan) => {
@@ -57,14 +57,64 @@ export function PricingTable({ plans, currentPlanId, onSelectPlan }: PricingTabl
   };
 
   // Handle plan selection
-  const handleSelectPlan = (plan: PricingPlan) => {
+  const handleSelectPlan = async (plan: PricingPlan) => {
     const priceId = billingInterval === "monthly" ? plan.priceIds.monthly : plan.priceIds.annually;
     
     if (onSelectPlan) {
       onSelectPlan(plan.id, priceId);
     } else {
-      // Default behavior: redirect to checkout
-      router.push(`/checkout?priceId=${priceId}`);
+      try {
+        setLoadingPlanId(plan.id);
+        
+        // Get the current URL for success and cancel URLs
+        const origin = window.location.origin;
+        const successUrl = `${origin}/billing?success=true`;
+        const cancelUrl = `${origin}/billing?canceled=true`;
+        
+        console.log("Creating checkout session with:", {
+          priceId,
+          successUrl,
+          cancelUrl
+        });
+        
+        // Call the API to create a checkout session
+        const response = await fetch("/api/create-checkout-session", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            priceId,
+            successUrl,
+            cancelUrl,
+          }),
+        });
+        
+        const responseData = await response.json();
+        
+        console.log("Checkout session response:", {
+          status: response.status,
+          ok: response.ok,
+          data: responseData
+        });
+        
+        if (!response.ok) {
+          throw new Error(responseData.error || "Failed to create checkout session");
+        }
+        
+        // Redirect to the checkout URL - access the url from the data property
+        if (responseData.data && responseData.data.url) {
+          console.log("Redirecting to checkout URL:", responseData.data.url);
+          window.location.href = responseData.data.url;
+        } else {
+          console.error("No URL in response data:", responseData);
+          throw new Error("No checkout URL returned");
+        }
+      } catch (error) {
+        console.error("Checkout error:", error);
+        toast.error(error instanceof Error ? error.message : "Failed to start checkout process");
+        setLoadingPlanId(null);
+      }
     }
   };
 
@@ -154,9 +204,18 @@ export function PricingTable({ plans, currentPlanId, onSelectPlan }: PricingTabl
                     ? "bg-primary text-primary-foreground hover:bg-primary/90"
                     : ""
                 )}
-                disabled={currentPlanId === plan.id}
+                disabled={currentPlanId === plan.id || loadingPlanId === plan.id}
               >
-                {currentPlanId === plan.id ? "Current Plan" : "Get Started"}
+                {currentPlanId === plan.id ? (
+                  "Current Plan"
+                ) : loadingPlanId === plan.id ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Processing...
+                  </>
+                ) : (
+                  "Get Started"
+                )}
               </Button>
             </CardFooter>
           </Card>

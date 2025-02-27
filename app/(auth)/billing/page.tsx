@@ -6,6 +6,8 @@ import { getUserSubscription, getSubscriptionPlans } from "@/actions/subscriptio
 import { BillingPageClient } from "./_components/billing-page-client";
 import { DashboardHeader } from "./_components/dashboard-header-server";
 import { Loader2 } from "lucide-react";
+import { SuccessMessage } from "@/app/(auth)/billing/_components/success-message";
+import { CancelMessage } from "@/app/(auth)/billing/_components/cancel-message";
 
 // Define types to match the client component
 interface Subscription {
@@ -36,7 +38,17 @@ interface Plan {
   popular?: boolean;
 }
 
-export default async function BillingPage() {
+interface BillingPageProps {
+  searchParams: {
+    success?: string;
+    canceled?: string;
+  };
+}
+
+export default async function BillingPage({ searchParams }: BillingPageProps) {
+  const showSuccess = searchParams.success === "true";
+  const showCanceled = searchParams.canceled === "true";
+  
   // Fetch data server-side
   const subscriptionResponse = await getUserSubscription();
   const plansResponse = await getSubscriptionPlans();
@@ -76,6 +88,9 @@ export default async function BillingPage() {
       <DashboardHeader title="Billing & Subscription" />
       
       <main className="flex-1 p-6 space-y-8">
+        {showSuccess && <SuccessMessage />}
+        {showCanceled && <CancelMessage />}
+        
         <div className="space-y-4">
           <h2 className="text-2xl font-bold tracking-tight">Manage Your Subscription</h2>
           <p className="text-muted-foreground">
